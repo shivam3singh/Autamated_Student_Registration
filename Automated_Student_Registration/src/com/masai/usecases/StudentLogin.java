@@ -9,7 +9,7 @@ import com.masai.exception.StudentException;
 public class StudentLogin {
 
 	
-	public static void main(String[] args) {
+	public static boolean main(String[] args) {
 		
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter emial");
@@ -24,10 +24,11 @@ public class StudentLogin {
 		try {
 			
 			System.out.println(d.login(email, pass));
-			
+			return true;
 		} catch (StudentException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return false;
 		}
 		
 		

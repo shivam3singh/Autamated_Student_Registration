@@ -10,7 +10,7 @@ import com.masai.model.Admin;
 
 public class AdminRegistration {
 
-	public static void main(String[] args) {
+	public static boolean main(String[] args) {
 		
 	Scanner sc= new Scanner(System.in);
 	
@@ -28,11 +28,13 @@ public class AdminRegistration {
 	AdministratorDao a= new AdministratorDaoImpl();
 	try {
 		String res=a.adminRegistration(adm);
-		System.out.println(res);
-		System.out.println("Please logIn");
+		return true;
+		
 	} catch (AdminException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
+		System.out.println(e.getMessage());
+		
+		return false;
 	}
 	
 		

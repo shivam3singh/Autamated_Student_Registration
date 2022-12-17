@@ -7,9 +7,9 @@ import com.masai.dao.StudentDaoImpl;
 import com.masai.exception.StudentException;
 import com.masai.model.Student;
 
-public class RegisterStudentIntoCourse {
+public class Registerstudent {
 
-	public static boolean main(String[] args) {
+public static boolean main(String[] args) {
 		
 		Scanner sc= new Scanner(System.in);
 		
@@ -25,8 +25,7 @@ public class RegisterStudentIntoCourse {
 		String name= sc.next();
 		
 		
-		System.out.println("Enter course id in which You want to take admission");
-		int cid= sc.nextInt();
+		
 		
 		Student s= new Student();
 		s.setEmail(email);
@@ -36,8 +35,8 @@ public class RegisterStudentIntoCourse {
 		StudentDao st= new StudentDaoImpl();
 		
 		try {
-			String res=st.studentRegistration(s,cid);
-			System.out.println(res);
+			String res=st.registration(s);
+			
 			return true;
 			
 		} catch (StudentException e) {
@@ -49,5 +48,6 @@ public class RegisterStudentIntoCourse {
 		
 		
 	}
+	
 	
 }

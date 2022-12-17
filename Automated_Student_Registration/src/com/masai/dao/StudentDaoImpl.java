@@ -227,6 +227,51 @@ PreparedStatement ps=	conn.prepareStatement("select * from courses");
 		return list;
 	}
 
+	@Override
+	public String registration(Student s) throws StudentException {
+		
+
+		String msz="Student Not Registered";
+		
+		try (Connection conn=utility.provideconnetion()){
+			
+			PreparedStatement ps=	conn.prepareStatement("insert into students(semail,spassword,sname) values(?,?,?)");
+				
+			ps.setString(1, s.getEmail());
+			ps.setString(2, s.getPassword());
+			ps.setString(3, s.getName());
+			
+			
+	       int	x=	ps.executeUpdate();
+				
+	       if(x>0) {
+
+	    	 
+	 	    			  msz="Registration Succesful";
+	 	    		  }else {
+	 	    			  msz="Some Registration eroor occure";
+	 	    		  }
+	    		    	
+	    		    
+	    		  
+				
+			} catch (SQLException e) {
+				// TODO: handle exception
+				
+				throw new StudentException(e.getMessage());
+		
+			}
+			
+			
+		
+				 
+			 
+			 
+		
+		return msz;
+		
+	}
+
 
 	
 	

@@ -10,7 +10,7 @@ import com.masai.model.Admin;
 
 public class AdminLogin {
 
-	public static void main(String[] args) {
+	public static boolean main(String[] args) {
 		
 		
 		Scanner sc= new Scanner(System.in);
@@ -31,12 +31,13 @@ public class AdminLogin {
 			a.adminLogin(name, pass);
 			
 	System.out.println("Login Succesfull");
-			
+			return true;
 			
 		} catch (AdminException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Main.main(null);
+			System.out.println(e.getMessage());
+			
+		return false;
 		}
 		
 		
